@@ -3,25 +3,42 @@
 <head>
 	<!-- Added link to the jQuery Library -->
 	<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!--Added link to the Bootstrap CDN -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 	<title>Street Fighter RPG</title>
 </head>
 <body>
-	<header>
-		<div class="small-images">
-			<img src="assets/images/small/ryu.png">
+	<header class="container-fluid flexcontainer">
+		<div class="header-logo"><img src="assets/images/sflogo.png" style="width: 300px"></div>
+		<div class="row small-images">
+			
 		</div>
 	</header>
-	<main>
+	<main class="background">
+		<div class="row flexcontainer">
+			<div class="col-md-2 player p1"></div>
+			<div class="col-md-3 fightPanel">
+				<div class="row p1-details"></div>
+				<div class="fightDetails"></div>
+				<div class="row p2-details"></div>
+			</div>
+			<div class="col-md-2 player p2"></div>
+		</div>
 	</main>
 	<footer>
 		<p>&copy; Copyright 2016 Justin Ryan LeBlanc</p>
 	</footer>
-	<script>
-	//$( ".small-images" ).prepend( "<p>Test</p>" );
-	</script>
 </body>
 
 </html>
