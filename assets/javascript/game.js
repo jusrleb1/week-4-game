@@ -211,7 +211,7 @@ $(document).ready(function(){
 			getPlayer2();
 	    	console.log(player2);
 	    	$('<img />').appendTo('.p2').attr({src: player2.lgImg, value: player2.Value})
-	    	.addClass('img-rounded');
+	    	.addClass('img-rounded p2-image-lg');
 	    	$('<p>').appendTo('.p2-details').html('<strong>' + player2.Name + '</strong>');
 	    	$('<p>').appendTo('.p2-details').html('Country: ' + player2.Country);
 	    	$('<p>').appendTo('.p2-details').html('"'+player2.Slogan+'"');
@@ -239,18 +239,18 @@ $(document).ready(function(){
 					.removeClass('fightButton')
     				.addClass('fightAgainButton')
     				.css('width', '120px');
-				if (p1Power <= 0){
+				if (p2Power <= 0){
+					fightMusic.pause();
+					winMusic.play();
+					$(".power2").html("Power: 0");
+					//$(".power1").html("Power: " + p1Power);
+					$('.win-lose1').html('<strong>YOU WIN!</strong>');
+				} else if (p1Power <= 0){
 					fightMusic.pause(); 
 					loseMusic.play();
 					$(".power1").html("Power: 0");
-					$(".power2").html("Power: " + p2Power);
+					//$(".power2").html("Power: " + p2Power);
 					$('.win-lose1').html('<strong>YOU LOSE!</strong>');
-				} else if (p2Power <= 0){
-					fightMusic.pause();
-					winMusic.play();
-					$(".power1").html("Power: " + p1Power);
-					$(".power2").html("Power: 0");
-					$('.win-lose1').html('<strong>YOU WIN!</strong>');
 				} 
 			} else if (p1Power <= 0 || p2Power <= 0) {
 				$('.fightButton').html('<strong>FIGHT AGAIN</strong>')
