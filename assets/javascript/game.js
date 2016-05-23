@@ -20,10 +20,12 @@ $(document).ready(function(){
 	$('.background').css('background', 'url("'+randomBG+'") no-repeat fixed center');
 
 	// Theme music files
+	var playerSelected = new Audio("assets/music/playerSelected.wav");
 	var playerselectMusic = new Audio("assets/music/player-select.mp3");
 	var fightMusic = new Audio("assets/music/fight.mp3");
 	var winMusic = new Audio("assets/music/win.mp3");
 	var loseMusic = new Audio("assets/music/lose.mp3");
+	var punch = new Audio("assets/music/punch.wav");
 	playerselectMusic.play(); 
 
 	// Player 1 Object
@@ -177,6 +179,9 @@ $(document).ready(function(){
     
     // Selects both fighers
     $(".img-thumbnail").on("click", function(){
+    	playerselectMusic.pause();
+    	playerSelected.play();
+    	playerselectMusic.play();
     	clickCount += 1;
     	if (clickCount === 1) {
 	        p1 = $(this).attr('value');
@@ -198,6 +203,7 @@ $(document).ready(function(){
 	    	$('.fightDetails').html('<strong>Select your opponent!</strong>');
 	    } else if (clickCount === 2) {
 	    	playerselectMusic.pause();
+	    	playerSelected.play();
 	    	fightMusic.play(); 
 	    	$('.fightDetails').html('').removeClass('instructions');
 	    	p2 = $(this).attr('value');
@@ -227,6 +233,9 @@ $(document).ready(function(){
 	});	
    
     $('body').on("click", '.fightButton', function(){
+    	fightMusic.pause();
+    	punch.play();
+    	fightMusic.play();
     	if(p1Power > 0 && p2Power > 0){
     		var attack1 = player1.attack[Math.floor(Math.random()*player1.attack.length)];
     		var attack2 = player2.attack[Math.floor(Math.random()*player2.attack.length)];
@@ -245,12 +254,14 @@ $(document).ready(function(){
 					$(".power2").html("Power: 0");
 					//$(".power1").html("Power: " + p1Power);
 					$('.win-lose1').html('<strong>YOU WIN!</strong>');
+					$(".p2-image-lg").animate({opacity: '0.65'});
 				} else if (p1Power <= 0){
 					fightMusic.pause(); 
 					loseMusic.play();
 					$(".power1").html("Power: 0");
 					//$(".power2").html("Power: " + p2Power);
 					$('.win-lose1').html('<strong>YOU LOSE!</strong>');
+					$(".p1-image-lg").animate({opacity: '0.65'});
 				} 
 			} else if (p1Power <= 0 || p2Power <= 0) {
 				$('.fightButton').html('<strong>FIGHT AGAIN</strong>')
